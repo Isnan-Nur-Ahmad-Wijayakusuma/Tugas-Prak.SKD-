@@ -77,7 +77,7 @@ def Dekripsi():
     for char in pesan:
         if char in alfabet:                          #Memecah string menjadi satu2 dan pengecekan ada tidaknya karakter dalam pesa
             posisi = alfabet.find(char)              #Jika ada, maka cari nilai indexnya
-            key_char = luas_key[posisiKey]           #Konversi string asli ke hasil enkripsi
+            key_char = luas_key[posisiKey]           #Konversi string asli ke hasil dekripsi
             keyChar_posisi = alfabet.find(key_char)  #Untuk mengetahui posisi suatu kata atau deret karakter tertentu pada kalimat
             posisiKey= posisiKey + 1                 #Posisi keyWord bertambah seiring panjangnya pesan yg diinputkan
             posisiBaru = posisi - keyChar_posisi     #Posisi afabet/karakter setelah dienkripsi
@@ -87,7 +87,7 @@ def Dekripsi():
             newChar = alfabet[posisiBaru]       #Konversi string asli ke hasil enkripsi
             result = result + newChar           #Jika ada, maka dikonversi menjadi karakter yang ada di variabel alfabet dengan kombinasi enkripsi
         else:                                   
-            result = result + " "               ##Mengkonversi menjadi karakter @% jika tidak terdapat dalam array alfabet.
+            result = result + " "               #Mengkonversi menjadi karakter @% jika tidak terdapat dalam array alfabet.
     #Hasil
     print(f"<---------------------------------->\nHasil program enkripsi\nData pesan\t: {pesan}\nDekripsi pesan\t: {result}")  
     
