@@ -3,7 +3,7 @@ print("=====---[Vigerner Chiper]---=====")
 alfabet = "abcdefghijklmnopqrstuvwxyz"
 
 #Encrypt funct
-def Enkripsi():
+def Enkripsi(alfabet):
     pesan = ""                              #Membuat wadah kosong untuk isi pesan
     wordKey = ""                            #Membuat wadah kosong untuk isi kunci
     result = ""                             #Membuat wadah kosong untuk hasilnya nanti
@@ -25,30 +25,29 @@ def Enkripsi():
     panjang_key = len(luas_key)
 
     #Jika Keyword lebih pendek dari String/pesan yan diinputkan
-    while panjang_key < panjang_string:
-        #Menambahkan pengulangan lain dari kunci enkripsi
-        luas_key = luas_key + wordKey
-        panjang_key = len(luas_key)
-
+    while panjang_key < panjang_string: 
+        luas_key = luas_key + wordKey   #Menambahkan pengulangan kunci enkripsi sepanjang pesan yg diinputkan. Jadi maksdunya
+        panjang_key = len(luas_key)     #adalah panjang WordKey + pesan nanti totalnya dihitung. Lalu, nantinya akan digunakan
+                                        #sebagai rumus untuk loop WordKey sepanjang pesan yg diinputkan.
     for char in pesan:
         if char in alfabet:                          #Memecah string menjadi satu2 dan pengecekan ada tidaknya karakter dalam pesan
             posisi         = alfabet.find(char)      #Jika ada, maka cari nilai indexnya
-            key_char       = luas_key[posisiKey]     #Konversi string asli ke hasil enkripsi
-            keyChar_posisi = alfabet.find(key_char)  #Untuk mengetahui posisi suatu kata atau deret karakter tertentu pada kalimat
-            posisiKey      = posisiKey + 1           #Posisi keyWord bertambah seiring panjangnya pesan yg diinputkan
-            posisiBaru     = posisi + keyChar_posisi #Posisi lafabet/karakter setelah dienkripsi
+            key_char       = luas_key[posisiKey]     #Mengkonversi panjang Keynya dengan nilai default 0
+            keyChar_posisi = alfabet.find(key_char)  #Untuk mengetahui posisi WordKey pada array Alfabet
+            posisiKey      = posisiKey + 1           #Posisi Key bertambah seiring panjangnya pesan yg diinputkan
+            posisiBaru     = posisi + keyChar_posisi #Lalu dibuat rumus(posisiBaru) penjumlahan posisi(index) pesan & WordKeynya
             
             if posisiBaru > 26:               #Jika posisi barunya lebih besar dari karakter yang ditampung variabel alfabet
                 posisiBaru = posisiBaru - 26  #Maka akan dikurangin dengan jumlah karakter yang terdapat di variabel alfabet
-            newChar= alfabet[posisiBaru]      #Konversi string asli ke hasil enkripsi
-            result  = result + newChar        #Jika ada, maka dikonversi menjadi karakter yang ada di variabel alfabet dengan kombinasi enkripsi
+            newChar= alfabet[posisiBaru]      #Mengkonversi index ke karakter pada variabel alfabet
+            result  = result + newChar        #Jika ada, maka dikonversi menjadi karakter yang ada di variabel alfabet sesuai index
         else:
             result = result + "@%"            #Mengkonversi menjadi karakter @% jika tidak terdapat dalam array alfabet.
-    #Hasil
+    #Hasil                                    #Jadi ini digunakan untuk mengkonversi spasi dalam pesan
     print(f"<---------------------------------->\nHasil program enkripsi\nData pesan\t: {pesan}\nEnkripsi pesan\t: {result}")  
 
 #Decrypt funct
-def Dekripsi():
+def Dekripsi(alfabet):
     pesan = ""          #Membuat wadah kosong untuk isi pesan
     wordKey = ""        #Membuat wadah kosong untuk isi kunci
     result = ""         #Membuat wadah kosong untuk hassilnya nanti
@@ -69,26 +68,26 @@ def Dekripsi():
     luas_key = wordKey
     panjang_key = len(luas_key)
 
-    while panjang_key < panjang_string:
-        #Menambahkan pengulangan lain dari kunci enkripsi
-        luas_key = luas_key + wordKey
-        panjang_key = len(luas_key)
-
+    #Jika Keyword lebih pendek dari String/pesan yan diinputkan
+    while panjang_key < panjang_string: 
+        luas_key = luas_key + wordKey   #Menambahkan pengulangan kunci enkripsi sepanjang pesan yg diinputkan. Jadi maksdunya
+        panjang_key = len(luas_key)     #adalah panjang WordKey + pesan nanti totalnya dihitung. Lalu, nantinya akan digunakan
+                                        #sebagai rumus untuk loop WordKey sepanjang pesan yg diinputkan.
     for char in pesan:
-        if char in alfabet:                          #Memecah string menjadi satu2 dan pengecekan ada tidaknya karakter dalam pesa
-            posisi = alfabet.find(char)              #Jika ada, maka cari nilai indexnya
-            key_char = luas_key[posisiKey]           #Konversi string asli ke hasil dekripsi
-            keyChar_posisi = alfabet.find(key_char)  #Untuk mengetahui posisi suatu kata atau deret karakter tertentu pada kalimat
-            posisiKey= posisiKey + 1                 #Posisi keyWord bertambah seiring panjangnya pesan yg diinputkan
-            posisiBaru = posisi - keyChar_posisi     #Posisi afabet/karakter setelah dienkripsi
-
-            if posisiBaru > 26:                 #Jika posisi barunya lebih besar dari karakter yang ditampung variabel alfabet     
-                posisiBaru = posisiBaru + 26    #Maka akan dijumlahkan dengan jumlah karakter yang terdapat di variabel alfabet
-            newChar = alfabet[posisiBaru]       #Konversi string asli ke hasil enkripsi
-            result = result + newChar           #Jika ada, maka dikonversi menjadi karakter yang ada di variabel alfabet dengan kombinasi enkripsi
-        else:                                   
-            result = result + " "               #Mengkonversi menjadi karakter @% jika tidak terdapat dalam array alfabet.
-    #Hasil
+        if char in alfabet:                          #Memecah string menjadi satu2 dan pengecekan ada tidaknya karakter dalam pesan
+            posisi         = alfabet.find(char)      #Jika ada, maka cari nilai indexnya
+            key_char       = luas_key[posisiKey]     #Mengkonversi panjang Keynya dengan nilai default 0
+            keyChar_posisi = alfabet.find(key_char)  #Untuk mengetahui posisi WordKey pada array Alfabet
+            posisiKey      = posisiKey + 1           #Posisi Key bertambah
+            posisiBaru     = posisi - keyChar_posisi #Lalu dibuat rumus(posisiBaru) pengurangan posisi(index) pesan & WordKeynya
+            
+            if posisiBaru > 26:               #Jika posisi barunya lebih besar dari karakter yang ditampung variabel alfabet
+                posisiBaru = posisiBaru + 26  #Maka akan ditambah dengan jumlah karakter yang terdapat di variabel alfabet
+            newChar= alfabet[posisiBaru]      #Mengkonversi index ke karakter pada variabel alfabet
+            result  = result + newChar        #Jika ada, maka dikonversi menjadi karakter yang ada di variabel alfabet sesuai index
+        else:
+            result = result + " "            #Mengkonversi menjadi karakter spasi jika tidak terdapat dalam array alfabet.
+    #Hasil                                   #Jadi ini mengkonversi @% menjadi spasi dalam pesan    
     print(f"<---------------------------------->\nHasil program enkripsi\nData pesan\t: {pesan}\nDekripsi pesan\t: {result}")  
     
 
@@ -101,10 +100,10 @@ while (pilihan == 'Y' or pilihan == 'y'):   #If you choose 'y' or 'Y', this menu
            
     if menu == 'A' or menu == 'a':      #Choose menu a
         print("Menu enkripsi pesan\n----------------------------------")
-        Enkripsi()                      #Menjalankan Encryp funct
+        Enkripsi(alfabet)                      #Menjalankan Encryp funct
     elif menu == 'B' or menu == 'b':    #Choose menu b
         print("Menu dekripsi pesan")
-        Dekripsi()                      #Menjalankan Decrypt funct
+        Dekripsi(alfabet)                      #Menjalankan Decrypt funct
     elif menu == 'C' or menu == 'c':    #Choose menu c, will be what?? Exactly,it will be done or close program
         print("!!---!!---[Program selesai]---!!---!!")
         break;
@@ -118,7 +117,7 @@ while (pilihan == 'Y' or pilihan == 'y'):   #If you choose 'y' or 'Y', this menu
 
 #Penjelasan HASIL
 """
-PLAIN TXT   : Isnan lucu
-CHIPER TXT  : eojwj hqyw
+Plain_txt       : Isnan Nur Ahmad Wijayakusuma
+Word_Key        : Magetan
+Enkrpsi/Cipher  : usteg@%nhd@%anqtd@%jujgctkheuse
 """
-
