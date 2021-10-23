@@ -59,7 +59,7 @@ def enkrips(alfabet):          #Membuat fungsi Enkripsi
 
 #Untuk fungsi deskripsi, hirarki dan kodenya sama dengan fungsi enkripsi, cuman beda rumus saja
 def dekrips(alfabet):
-    #[-------------------------<===VIGENERE CHIP===>-------------------------]
+    #[-------------------------<===CAESAR CHIP===>-------------------------]
     str = input("Pesan terenkripsi: ")
     key = int(input("Kunci angka\t: "))
     str = str.lower()
@@ -75,7 +75,7 @@ def dekrips(alfabet):
             result1 = result1 + " "
 
     
-    #[--------------------------<===CAESAR CHIP===>--------------------------]
+    #[--------------------------<===VIGENERE CHIP===>--------------------------]
     result2 = ""         #Membuat wadah kosong untuk hassilnya nanti
     posisiKey = 0       #Posisi default string
     
