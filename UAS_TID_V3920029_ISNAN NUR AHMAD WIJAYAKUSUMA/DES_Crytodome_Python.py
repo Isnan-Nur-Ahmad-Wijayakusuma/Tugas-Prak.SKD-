@@ -1,13 +1,9 @@
 from Crypto.Cipher import DES
 from Crypto.Util.Padding import pad
-#KELOMPOK 1
-"""
-Bagas Aditya pramudana			(V3920012) 
-Dion Aji cahyono				(V3920018) 
-Isnan Nur Ahmad Wijayakusuma	(V3920029)
-Ivan Fausta Dinata				(V3920030) 
-Kreshna Pura Adi Wicaksana		(V3920032) 
-"""
+# Kelas   : TID
+# Nim   : V3920029
+# Nama  : ISNAN NUR AHMAD WIJAYAKUSUMA
+# UAS Praktik Sisten Keamanan Data
 
 #Sintak b untuk bytes. Panjang n byte block 
 key = b'23tfwk4'                
